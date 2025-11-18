@@ -3,286 +3,63 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Helm | Fredericton Squadron CPS-ECP</title>
+    <title>Hello World</title>
 
-    <!-- Social Sharing Thumbnail (1200×630) -->
-    <meta property="og:title" content="The Helm – Fredericton Squadron CPS-ECP" />
-    <meta property="og:description" content="November 2025 | Courses • Events • Safety • Saint John River Boating Community" />
-    <meta property="og:image" content="https://www.boatfredericton.com/helm-preview.jpg" />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
-    <meta property="og:url" content="https://www.boatfredericton.com" />
-    <meta property="og:type" content="website" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:image" content="https://www.boatfredericton.com/helm-preview.jpg" />
+    <!-- ==== FAVICON FROM CANBOAT.CA ==== -->
+    <link rel="icon" href="https://canboat.ca/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="https://canboat.ca/favicon.ico" type="image/x-icon">
+    <!-- Optional: higher-resolution versions they also provide -->
+    <link rel="apple-touch-icon" sizes="180x180" href="https://canboat.ca/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://canboat.ca/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="https://canboat.ca/favicon-16x16.png">
+    <!-- ================================== -->
 
     <style>
-        body {font-family:'Segoe UI',sans-serif;margin:0;background:#f0f4f8;color:#333;}
-        .container {max-width:1200px;margin:0 auto;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,0.15);overflow:hidden;}
-
-        /* HERO IMAGE – Saint John River at Sunset */
-        .hero {
-            position:relative;
-            width:100%;
-            height:65vh;
-            min-height:420px;
-            background:url('https://images.unsplash.com/photo-1506905925346-5006b7d6c3b0?w=2000&q=85&auto=format&fit=crop') center/cover no-repeat;
-            display:flex;
-            align-items:center;
-            justify-content:center;
-            text-align:center;
-            color:white;
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+            text-align: center;
         }
-        .hero::before {
-            content:'';
-            position:abackground:url('https://files.catbox.moe/0n7q9k.jpg') center/cover no-repeat;bsolute;
-            top:0;left:0;right:0;bottom:0;
-            background:url('https://files.catbox.moe/0n7q9k.jpg') center/cover no-repeat;
+        .container {
+            padding: 40px 60px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
         }
-        .hero-content {
-            position:relative;
-            z-index:2;
+        h1 {
+            font-size: 6rem;
+            margin: 0;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
         }
-        .hero h1 {
-            font-size:5em;
-            margin:0;
-            letter-spacing:3px;
-            text-shadow:0 4px 15px rgba(0,0,0,0.8);
+        p {
+            font-size: 1.5rem;
+            margin-top: 20px;
+            opacity: 0.9;
         }
-        .hero p {
-            font-size:1.8em;
-            margin:10px 0 0;
-            font-weight:300;
-            text-shadow:0 2px 8px rgba(0,0,0,0.7);
+        .wave {
+            animation: wave 2s infinite;
+            display: inline-block;
         }
-
-        /* MAIN TABS */
-        .tabs {display:flex;background:#2c3e50;flex-wrap:wrap;}
-        .tabs label {flex:1;padding:20px;text-align:center;color:#fff;cursor:pointer;font-weight:600;min-width:100px;transition:background .3s;}
-        .tabs label:hover {background:#34495e;}
-        input[type=radio] {display:none;}
-
-        .tab-content {padding:40px;min-height:550px;display:none;animation:fadeIn .5s;}
-        @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
-
-        #tab1:checked ~ .tab-content:nth-of-type(1), #tab2:checked ~ .tab-content:nth-of-type(2),
-        #tab3:checked ~ .tab-content:nth-of-type(3), #tab4:checked ~ .tab-content:nth-of-type(4),
-        #tab5:checked ~ .tab-content:nth-of-type(5), #tab6:checked ~ .tab-content:nth-of-type(6),
-        #tab7:checked ~ .tab-content:nth-of-type(7) {display:block;}
-
-        #tab1:checked ~ .tabs label[for=tab1], #tab2:checked ~ .tabs label[for=tab2],
-        #tab3:checked ~ .tabs label[for=tab3], #tab4:checked ~ .tabs label[for=tab4],
-        #tab5:checked ~ .tabs label[for=tab5], #tab6:checked ~ .tabs label[for=tab6],
-        #tab7:checked ~ .tabs label[for=tab7] {background:#e74c3c;}
-
-        /* Nested Safety Buoy Tabs */
-        .nested-tabs {display:flex;background:#34495e;margin:30px 0;border-radius:8px;overflow:hidden;}
-        .nested-tabs label {flex:1;padding:14px;text-align:center;color:#fff;cursor:pointer;font-weight:600;}
-        .nested-content {padding:30px;background:#f9f9f9;border-radius:8px;display:none;}
-        #nested1:checked ~ .nested-content:nth-of-type(1), #nested2:checked ~ .nested-content:nth-of-type(2),
-        #nested3:checked ~ .nested-content:nth-of-type(3), #nested4:checked ~ .nested-content:nth-of-type(4) {display:block;}
-        #nested1:checked ~ .nested-tabs label[for=nested1], #nested2:checked ~ .nested-tabs label[for=nested2],
-        #nested3:checked ~ .nested-tabs label[for=nested3], #nested4:checked ~ .nested-tabs label[for=nested4] {background:#27ae60;}
-
-        h1,h2,h3{color:#2c3e50;}
-        .procedure{background:#fff;padding:18px;margin:15px 0;border-left:6px solid #27ae60;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
-        .newsletter-section {background:#f8f9fa;padding:25px;border-radius:8px;margin:20px 0;}
-        .event-list{list-style:none;padding:0;}
-        .event-list li{background:#fff;padding:18px;margin:12px 0;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
-        table{width:100%;border-collapse:collapse;margin-top:20px;}
-        th,td{padding:12px;text-align:left;border-bottom:1px solid #ddd;}
-        th{background:#f2f2f2;}
-        a{color:#e74c3c;text-decoration:none;}
-        a:hover{text-decoration:underline;}
+        @keyframes wave {
+            0%, 100% { transform: rotate(0deg); }
+            20% { transform: rotate(15deg); }
+            40% { transform: rotate(-10deg); }
+            60% { transform: rotate(10deg); }
+            80% { transform: rotate(-5deg); }
+        }
     </style>
 </head>
 <body>
-
-<div class="container">
-
-    <!-- HERO IMAGE WITH TITLE -->
-    <div class="hero">
-        <div class="hero-content">
-            <h1>The Helm</h1>
-            <p>Fredericton Squadron CPS-ECP • November 2025</p>
-        </div>
+    <div class="container">
+        <h1>Hello <span class="wave">👋</span> World!</h1>
+        <p>Your very first website is alive!</p>
     </div>
-
-    <!-- MAIN RADIO BUTTONS -->
-    <input type="radio" name="tabs" id="tab1" checked>
-    <input type="radio" name="tabs" id="tab2">
-    <input type="radio" name="tabs" id="tab3">
-    <input type="radio" name="tabs" id="tab4">
-    <input type="radio" name="tabs" id="tab5">
-    <input type="radio" name="tabs" id="tab6">
-    <input type="radio" name="tabs" id="tab7">
-
-    <!-- MAIN NAVIGATION -->
-    <nav class="tabs">
-        <label for="tab1">The Helm</label>
-        <label for="tab2">Chart Room</label>
-        <label for="tab3">Commander’s Notes</label>
-        <label for="tab4">Safety Buoy</label>
-        <label for="tab5">On the Horizon</label>
-        <label for="tab6">Captain’s Log</label>
-        <label for="tab7">Bearings & Tales</label>
-    </nav>
-
-    <!-- TAB 1: The Helm (Newsletter Intro + Join + Joke + CanBoat) -->
-    <section class="tab-content">
-        <h1>The Helm – November 2025</h1>
-        <div class="newsletter-section">
-            <p>Our Fredericton Squadron newsletter returns after 13 year “Turn in”</p>
-            <p>The Binnacle—the cherished newsletter capturing the rippling yarns, current charts, and riverine rambles of boating aficionados along New Brunswick's storied Saint John River—has joyfully returned this November, as <strong>The Helm</strong>. Once a go-to guide for cruisers meandering past the heritage charm of Fredericton, and anglers casting lines in the tidal reaches near Reversing Falls.</p>
-            <p>This revival anchors just after the autumn leaves blaze along the banks, brimming with fresh tales of final salmon runs, winterized wooden dories, and the crisp hush of frost-kissed sunrises over the Kennebecasis Valley. For river rats who've longed for its weathered pages.</p>
-            <p>“The Helm” is provided in a mobile friendly format.<br><strong>Enjoy, mates!</strong></p>
-            <p><em>Steven Brewer, Communications Officer, Fredericton Squadron</em></p>
-        </div>
-
-        <div class="newsletter-section">
-            <h2>Come Aboard – Join Us!</h2>
-            <p>Whether you're a powerboater, sailor, paddler, or landlubber with a love for the water, the Fredericton Squadron welcomes you. Check out our <a href="https://www.facebook.com/Fredericton-Power-and-Sail-Squadron-251132482249/" target="_blank">Facebook page</a>!</p>
-            <h3>Membership Perks:</h3>
-            <ul>
-                <li>Access to training and certifications</li>
-                <li>Social events and regattas</li>
-                <li>A community of passionate mariners</li>
-                <li>Discounts on Canboat merchandise</li>
-            </ul>
-        </div>
-
-        <div class="newsletter-section">
-            <h2>Chuckles on the Poop Deck</h2>
-            <p><em>An expensive snore cure</em></p>
-            <p>A woman was nearing the end of her tether – every night her husband snored so loudly that it kept her awake...<br>“Well, there is one operation I can perform that will cure your husband of his snoring,” said the doctor, “but it is rather expensive. It will cost you a deposit of $50,000, and payments of $2,000 for 60 months...”<br>“Good grief!” exclaimed the woman. “That sounds like I’m buying a yacht!”<br>“Hmm,” the doctor murmured, “too obvious, huh?”</p>
-        </div>
-
-        <div class="newsletter-section">
-            <h2>CanBoat / NautiSavoir</h2>
-            <p>A Community Of Experienced Boaters Inspiring Others<br><a href="https://www.canboat.ca" target="_blank">www.canboat.ca</a></p>
-            <p>Since 1938, generations of volunteers have been sharing their on-the-water knowledge... Membership offers insurance discounts, course discounts, and much more.</p>
-        </div>
-    </section>
-
-    <!-- TAB 2: Chart Room – Courses -->
-    <section class="tab-content">
-        <h1>Chart Room – Learning & Courses</h1>
-        <div class="newsletter-section">
-            <h2>Nov 25, 2025 – Basic Navigation & Boat Handling</h2>
-            <p><strong>When:</strong> Tuesdays starting Nov 25, 2025 | 7–9 PM (12 weeks)<br>
-               <strong>Where:</strong> University of New Brunswick (Room TBA)</p>
-            <p><strong>Member $236</strong> → <a href="https://tinyurl.com/MemberBNBH" target="_blank">Register</a><br>
-               <strong>Non-Member $295</strong> → <a href="https://tinyurl.com/NonMemberBNBH" target="_blank">Register</a></p>
-        </div>
-        <div class="newsletter-section">
-            <h2>Marine Diesel Seminar (Cancelled – will be rescheduled)</h2>
-            <p>Reservations held. Contact: <a href="mailto:506Boat@gmail.com">506Boat@gmail.com</a></p>
-        </div>
-    </section>
-
-    <!-- TAB 3: Commander’s Notes -->
-    <section class="tab-content">
-        <h1>Commander’s Notes</h1>
-        <div class="newsletter-section">
-            <h2>Keeping the Boating Spirit Afloat This Winter</h2>
-            <p>As we tuck our boats away... we're thrilled to welcome a full board this year... spearheaded by our new Communications Officer, Steven Brewer.</p>
-            <p><em>“Don’t be so busy that you can’t remember if you found a rope on the beach or lost your boat”</em></p>
-            <p><strong>Troy Otis<br>Commander, Fredericton Squadron</strong></p>
-        </div>
-    </section>
-
-    <!-- TAB 4: Safety Buoy -->
-    <section class="tab-content">
-        <h1>Safety Buoy – Tip of the Month</h1>
-        <div class="newsletter-section">
-            <h2>“Know Before You Go”</h2>
-            <p>Always check the <a href="https://weather.gc.ca/marine/index_e.html" target="_blank">Canadian Marine Weather Service</a> and keep VHF tuned to Channel 16.</p>
-        </div>
-
-        <input type="radio" name="nested" id="nested1" checked>
-        <input type="radio" name="nested" id="nested2">
-        <input type="radio" name="nested" id="nested3">
-        <input type="radio" name="nested" id="nested4">
-
-        <nav class="nested-tabs">
-            <label for="nested1">Man Overboard</label>
-            <label for="nested2">Fire Response</label>
-            <label for="nested3">Medical Emergency</label>
-            <label for="nested4">Abandon Ship</label>
-        </nav>
-
-        <div class="nested-content">
-            <h2>Man Overboard Procedure</h2>
-            <div class="procedure">1. Shout “MAN OVERBOARD!” + port/starboard</div>
-            <div class="procedure">2. Throw life ring & deploy flotation</div>
-            <div class="procedure">3. Assign dedicated spotter</div>
-            <div class="procedure">4. Activate MOB on GPS</div>
-            <div class="procedure">5. Execute Williamson turn</div>
-            <div class="procedure">6. Deploy rescue boat if safe</div>
-        </div>
-
-        <div class="nested-content">
-            <h2>Fire Response Protocol</h2>
-            <div class="procedure">1. Sound continuous fire alarm</div>
-            <div class="procedure">2. Announce location over PA</div>
-            <div class="procedure">3. Attempt to extinguish (if safe)</div>
-            <div class="procedure">4. Close doors & vents</div>
-            <div class="procedure">5. Activate fixed system</div>
-            <div class="procedure">6. Prepare for evacuation</div>
-        </div>
-
-        <div class="nested-content">
-            <h2>Medical Emergency</h2>
-            <div class="procedure">1. Call “MEDICAL EMERGENCY” + location</div>
-            <div class="procedure">2. Administer first aid / CPR</div>
-            <div class="procedure">3. Retrieve AED and medical kit</div>
-            <div class="procedure">4. Contact shore medical service</div>
-            <div class="procedure">5. Prepare for medevac</div>
-        </div>
-
-        <div class="nested-content">
-            <h2>Abandon Ship Procedure</h2>
-            <div class="procedure">1. Commander orders “ABANDON SHIP”</div>
-            <div class="procedure">2. Sound 7 short + 1 long blast</div>
-            <div class="procedure">3. Don life jackets</div>
-            <div class="procedure">4. Transmit Mayday</div>
-            <div class="procedure">5. Launch liferafts</div>
-            <div class="procedure">6. Take EPIRB, SART, water</div>
-            <div class="procedure">7. Stay together and await rescue</div>
-        </div>
-    </section>
-
-    <!-- TAB 5: On the Horizon – Upcoming Events -->
-    <section class="tab-content">
-        <h1>On the Horizon – Upcoming Events</h1>
-        <ul class="event-list">
-            <li><strong>Nov 19 – Emergency Incident Handling (Expert Panel)</strong><br>7:00 PM • Dolan’s Pub</li>
-            <li><strong>Dec 4 – Christmas Party</strong><br>6:00 PM • The Nest (Above the Cap) • Live Music!</li>
-            <li><strong>Jan 21, 2026 – Knotty Night</strong><br>7:00 PM • Dolan’s Pub</li>
-            <li><strong>Feb 18, 2026 – Fire Safety</strong><br>7:00 PM • Dolan’s Pub</li>
-            <li><strong>Mar 18, 2026 – Season Preparation</strong><br>7:00 PM • Dolan’s Pub</li>
-            <li><strong>Apr 15, 2026 – Trivia Night</strong><br>7:00 PM • Dolan’s Pub</li>
-        </ul>
-    </section>
-
-    <!-- TAB 6: Captain’s Log – Recent Events -->
-    <section class="tab-content">
-        <h1>Captain’s Log – Recent Events</h1>
-        <div class="newsletter-section">
-            <h2>Oct 2025 Winterization Boat Talk</h2>
-            <p>22 engaged boaters • “One of our best ever”<br>Topics: antifreeze, battery care, fuel additives, bilge practices, moisture control, dryer sheets, sea strainers</p>
-        </div>
-    </section>
-
-    <!-- TAB 7: Bearings & Tales – Member Adventures -->
-    <section class="tab-content">
-        <h1>Bearings & Tales – Member Adventures</h1>
-        <div class="newsletter-section">
-            <p>Check out the amazing YouTube channel <a href="https://www.youtube.com/@BeyondthebuoyswithAnM" target="_blank">Beyond the Buoys (@BeyondthebuoyswithAnM)</a> by squadron members Andrea and Mike!</p>
-            <p>Their 1979 Mainship MK1 trawler delivery trip from Québec to New Brunswick is pure inspiration.</p>
-        </div>
-    </section>
-
-</div>
 </body>
 </html>
