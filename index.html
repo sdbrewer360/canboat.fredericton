@@ -3,21 +3,68 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Helm | Fredericton Squadron - CPS-ECP</title>
+    <title>The Helm | Fredericton Squadron CPS-ECP</title>
+
+    <!-- Social Sharing Thumbnail (1200×630) -->
+    <meta property="og:title" content="The Helm – Fredericton Squadron CPS-ECP" />
+    <meta property="og:description" content="November 2025 | Courses • Events • Safety • Saint John River Boating Community" />
+    <meta property="og:image" content="https://www.boatfredericton.com/helm-preview.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="https://www.boatfredericton.com" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image" content="https://www.boatfredericton.com/helm-preview.jpg" />
+
     <style>
         body {font-family:'Segoe UI',sans-serif;margin:0;background:#f0f4f8;color:#333;}
-        .container {max-width:1200px;margin:40px auto;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.15);}
+        .container {max-width:1200px;margin:0 auto;background:#fff;box-shadow:0 10px 40px rgba(0,0,0,0.15);overflow:hidden;}
 
-        /* ==== MAIN TABS ==== */
+        /* HERO IMAGE – Saint John River at Sunset */
+        .hero {
+            position:relative;
+            width:100%;
+            height:65vh;
+            min-height:420px;
+            background:url('https://images.unsplash.com/photo-1506905925346-5006b7d6c3b0?w=2000&q=85&auto=format&fit=crop') center/cover no-repeat;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            text-align:center;
+            color:white;
+        }
+        .hero::before {
+            content:'';
+            position:absolute;
+            top:0;left:0;right:0;bottom:0;
+            background:rgba(0,0,0,0.42);
+        }
+        .hero-content {
+            position:relative;
+            z-index:2;
+        }
+        .hero h1 {
+            font-size:5em;
+            margin:0;
+            letter-spacing:3px;
+            text-shadow:0 4px 15px rgba(0,0,0,0.8);
+        }
+        .hero p {
+            font-size:1.8em;
+            margin:10px 0 0;
+            font-weight:300;
+            text-shadow:0 2px 8px rgba(0,0,0,0.7);
+        }
+
+        /* MAIN TABS */
         .tabs {display:flex;background:#2c3e50;flex-wrap:wrap;}
-        .tabs label {flex:1;padding:18px;text-align:center;color:#fff;cursor:pointer;font-weight:600;min-width:100px;transition:background .3s;}
+        .tabs label {flex:1;padding:20px;text-align:center;color:#fff;cursor:pointer;font-weight:600;min-width:100px;transition:background .3s;}
         .tabs label:hover {background:#34495e;}
         input[type=radio] {display:none;}
 
         .tab-content {padding:40px;min-height:550px;display:none;animation:fadeIn .5s;}
         @keyframes fadeIn {from{opacity:0;}to{opacity:1;}}
 
-        /* Show active main tab */
         #tab1:checked ~ .tab-content:nth-of-type(1), #tab2:checked ~ .tab-content:nth-of-type(2),
         #tab3:checked ~ .tab-content:nth-of-type(3), #tab4:checked ~ .tab-content:nth-of-type(4),
         #tab5:checked ~ .tab-content:nth-of-type(5), #tab6:checked ~ .tab-content:nth-of-type(6),
@@ -28,37 +75,38 @@
         #tab5:checked ~ .tabs label[for=tab5], #tab6:checked ~ .tabs label[for=tab6],
         #tab7:checked ~ .tabs label[for=tab7] {background:#e74c3c;}
 
-        /* ==== NESTED TABS (Safety Buoy) ==== */
+        /* Nested Safety Buoy Tabs */
         .nested-tabs {display:flex;background:#34495e;margin:30px 0;border-radius:8px;overflow:hidden;}
         .nested-tabs label {flex:1;padding:14px;text-align:center;color:#fff;cursor:pointer;font-weight:600;}
-        .nested-tabs label:hover {background:#2c3e50;}
-
         .nested-content {padding:30px;background:#f9f9f9;border-radius:8px;display:none;}
-        #nested1:checked ~ .nested-content:nth-of-type(1),
-        #nested2:checked ~ .nested-content:nth-of-type(2),
-        #nested3:checked ~ .nested-content:nth-of-type(3),
-        #nested4:checked ~ .nested-content:nth-of-type(4) {display:block;}
-
-        #nested1:checked ~ .nested-tabs label[for=nested1],
-        #nested2:checked ~ .nested-tabs label[for=nested2],
-        #nested3:checked ~ .nested-tabs label[for=nested3],
-        #nested4:checked ~ .nested-tabs label[for=nested4] {background:#27ae60;}
+        #nested1:checked ~ .nested-content:nth-of-type(1), #nested2:checked ~ .nested-content:nth-of-type(2),
+        #nested3:checked ~ .nested-content:nth-of-type(3), #nested4:checked ~ .nested-content:nth-of-type(4) {display:block;}
+        #nested1:checked ~ .nested-tabs label[for=nested1], #nested2:checked ~ .nested-tabs label[for=nested2],
+        #nested3:checked ~ .nested-tabs label[for=nested3], #nested4:checked ~ .nested-tabs label[for=nested4] {background:#27ae60;}
 
         h1,h2,h3{color:#2c3e50;}
         .procedure{background:#fff;padding:18px;margin:15px 0;border-left:6px solid #27ae60;border-radius:4px;box-shadow:0 2px 8px rgba(0,0,0,0.05);}
+        .newsletter-section {background:#f8f9fa;padding:25px;border-radius:8px;margin:20px 0;}
+        .event-list{list-style:none;padding:0;}
+        .event-list li{background:#fff;padding:18px;margin:12px 0;border-radius:6px;box-shadow:0 3px 10px rgba(0,0,0,0.08);}
         table{width:100%;border-collapse:collapse;margin-top:20px;}
         th,td{padding:12px;text-align:left;border-bottom:1px solid #ddd;}
         th{background:#f2f2f2;}
-        .newsletter-section {background:#f8f9fa; padding:20px; border-radius:8px; margin:20px 0;}
-        .event-list {list-style:none; padding:0;}
-        .event-list li {background:#fff; padding:15px; margin:10px 0; border-radius:4px; box-shadow:0 2px 5px rgba(0,0,0,0.05);}
-        .youtube-table {width:100%; border-collapse:collapse;}
-        .youtube-table th, .youtube-table td {padding:10px; text-align:left; border-bottom:1px solid #ddd;}
+        a{color:#e74c3c;text-decoration:none;}
+        a:hover{text-decoration:underline;}
     </style>
 </head>
 <body>
 
 <div class="container">
+
+    <!-- HERO IMAGE WITH TITLE -->
+    <div class="hero">
+        <div class="hero-content">
+            <h1>The Helm</h1>
+            <p>Fredericton Squadron CPS-ECP • November 2025</p>
+        </div>
+    </div>
 
     <!-- MAIN RADIO BUTTONS -->
     <input type="radio" name="tabs" id="tab1" checked>
@@ -73,25 +121,27 @@
     <nav class="tabs">
         <label for="tab1">The Helm</label>
         <label for="tab2">Chart Room</label>
-        <label for="tab3">Commander's Notes</label>
+        <label for="tab3">Commander’s Notes</label>
         <label for="tab4">Safety Buoy</label>
         <label for="tab5">On the Horizon</label>
-        <label for="tab6">Captain's Log</label>
+        <label for="tab6">Captain’s Log</label>
         <label for="tab7">Bearings & Tales</label>
     </nav>
 
-    <!-- TAB 1: The Helm (Newsletter Intro) -->
+    <!-- TAB 1: The Helm (Newsletter Intro + Join + Joke + CanBoat) -->
     <section class="tab-content">
         <h1>The Helm – November 2025</h1>
         <div class="newsletter-section">
             <p>Our Fredericton Squadron newsletter returns after 13 year “Turn in”</p>
-            <p>The Binnacle—the cherished newsletter capturing the rippling yarns, current charts, and riverine rambles of boating aficionados along New Brunswick's storied Saint John River—has joyfully returned this November, as The Helm. Once a go-to guide for cruisers meandering past the heritage charm of Fredericton, and anglers casting lines in the tidal reaches near Reversing Falls. This revival anchors just after the autumn leaves blaze along the banks, brimming with fresh tales of final salmon runs, winterized wooden dories, and the crisp hush of frost-kissed sunrises over the Kennebecasis Valley. For river rats who've longed for its weathered pages.</p>
-            <p>“The Helm” is provided in a mobile friendly format. Enjoy, mates!</p>
-            <p><strong>Steven Brewer, Communications Officer, Fredericton Squadron</strong></p>
+            <p>The Binnacle—the cherished newsletter capturing the rippling yarns, current charts, and riverine rambles of boating aficionados along New Brunswick's storied Saint John River—has joyfully returned this November, as <strong>The Helm</strong>. Once a go-to guide for cruisers meandering past the heritage charm of Fredericton, and anglers casting lines in the tidal reaches near Reversing Falls.</p>
+            <p>This revival anchors just after the autumn leaves blaze along the banks, brimming with fresh tales of final salmon runs, winterized wooden dories, and the crisp hush of frost-kissed sunrises over the Kennebecasis Valley. For river rats who've longed for its weathered pages.</p>
+            <p>“The Helm” is provided in a mobile friendly format.<br><strong>Enjoy, mates!</strong></p>
+            <p><em>Steven Brewer, Communications Officer, Fredericton Squadron</em></p>
         </div>
+
         <div class="newsletter-section">
             <h2>Come Aboard – Join Us!</h2>
-            <p>Whether you're a powerboater, sailor, paddler, or landlubber with a love for the water, the Fredericton Squadron welcomes you. Check out our <a href="https://www.facebook.com/Fredericton-Power-and-Sail-Squadron-251132482249/" target="_blank">Facebook page!</a></p>
+            <p>Whether you're a powerboater, sailor, paddler, or landlubber with a love for the water, the Fredericton Squadron welcomes you. Check out our <a href="https://www.facebook.com/Fredericton-Power-and-Sail-Squadron-251132482249/" target="_blank">Facebook page</a>!</p>
             <h3>Membership Perks:</h3>
             <ul>
                 <li>Access to training and certifications</li>
@@ -100,58 +150,42 @@
                 <li>Discounts on Canboat merchandise</li>
             </ul>
         </div>
+
         <div class="newsletter-section">
             <h2>Chuckles on the Poop Deck</h2>
             <p><em>An expensive snore cure</em></p>
-            <p>A woman was nearing the end of her tether – every night her husband snored so loudly that it kept her awake. She decided to call the family doctor to see if there was anything that could be done to relieve her nightly suffering.</p>
-            <p>“Well, there is one operation I can perform that will cure your husband of his snoring,” said the doctor, “but I must warn you that it is rather expensive. It will cost you a deposit of $50,000, and payments of $2,000 for 60 months, as well as money for extras.”</p>
-            <p>“Good grief!” exclaimed the woman. “That sounds like I’m buying a yacht!”</p>
-            <p>“Hmm,” the doctor murmured, “too obvious, huh?”</p>
+            <p>A woman was nearing the end of her tether – every night her husband snored so loudly that it kept her awake...<br>“Well, there is one operation I can perform that will cure your husband of his snoring,” said the doctor, “but it is rather expensive. It will cost you a deposit of $50,000, and payments of $2,000 for 60 months...”<br>“Good grief!” exclaimed the woman. “That sounds like I’m buying a yacht!”<br>“Hmm,” the doctor murmured, “too obvious, huh?”</p>
         </div>
+
         <div class="newsletter-section">
             <h2>CanBoat / NautiSavoir</h2>
-            <p>A Community Of Experienced Boaters Inspiring Others</p>
-            <p>CanBoat / NautiSavoir, operated by Canadian Power and Sail Squadrons / Escadrilles canadiennes de plaisance (CPS-ECP), is a national, non-profit boating organization offering courses and seminars for recreational boaters.</p>
-            <p>Our <a href="https://www.canboat.ca/" target="_blank">CanBoat.ca</a> website offers the above certifications and links to its numerous other courses. These build from the basic courses required by law to more advanced material for boaters who would like to cross blue ocean waters.</p>
-            <p>The PCOC card program is the only Canadian-issued card that qualifies for acceptance by the U.S. Coast Guard. These courses are available online by self-study or taught via instructor led virtual classes or in classrooms.</p>
-            <p>Since 1938, generations of volunteers have been sharing their on-the-water knowledge with new and seasoned boaters, helping them prepare for both every-day and emergency situations. CanBoat / NautiSavoir courses are developed by boaters for boaters. Membership in CanBoat / NautiSavoir offers access to insurance discounts for boats, home and auto, discounts on courses, on marine wear and products, on marine on the water assistance and more. As well, annual membership dues from individuals allow CanBoat / NautiSavoir to better serve the boating community and develop its programs.</p>
+            <p>A Community Of Experienced Boaters Inspiring Others<br><a href="https://www.canboat.ca" target="_blank">www.canboat.ca</a></p>
+            <p>Since 1938, generations of volunteers have been sharing their on-the-water knowledge... Membership offers insurance discounts, course discounts, and much more.</p>
         </div>
     </section>
 
-    <!-- TAB 2: Chart Room (Courses) -->
+    <!-- TAB 2: Chart Room – Courses -->
     <section class="tab-content">
         <h1>Chart Room – Learning & Courses</h1>
-        <h2>Upcoming Courses:</h2>
         <div class="newsletter-section">
-            <h3>Nov 25, 2025 - Basic Navigation & Boat Handling: Hands-On Skills for Safe Boating</h3>
-            <p>The essential course for novice and experienced navigators—modernized for today's tools and challenges.</p>
-            <p><strong>When:</strong> Tuesdays, starting November 25, 2025 | 7–9 PM (12 weeks)</p>
-            <p><strong>Where:</strong> University of New Brunswick (UNB), Room TBA (details forthcoming)</p>
-            <p><strong>Member - Registration $236</strong> <a href="https://tinyurl.com/MemberBNBH" target="_blank">Register</a></p>
-            <p><strong>Non-Member - Sign In & Registration $295</strong> <a href="https://tinyurl.com/NonMemberBNBH" target="_blank">Register</a></p>
+            <h2>Nov 25, 2025 – Basic Navigation & Boat Handling</h2>
+            <p><strong>When:</strong> Tuesdays starting Nov 25, 2025 | 7–9 PM (12 weeks)<br>
+               <strong>Where:</strong> University of New Brunswick (Room TBA)</p>
+            <p><strong>Member $236</strong> → <a href="https://tinyurl.com/MemberBNBH" target="_blank">Register</a><br>
+               <strong>Non-Member $295</strong> → <a href="https://tinyurl.com/NonMemberBNBH" target="_blank">Register</a></p>
         </div>
         <div class="newsletter-section">
-            <h3>Nov 15, 2025 One Day Marine Diesel Seminar (Cancelled due to Injury)</h3>
-            <p><strong>When:</strong> Will be rescheduled. For anyone that has signed up already, your reservation will be held. Stay tuned!</p>
-            <p><strong>Where:</strong> 40 Hubbard Rd, Fredericton</p>
-            <p><strong>Limited Seating</strong></p>
-            <p>CPS Member Registration Now Open, Price $100</p>
-            <p>Email: <a href="mailto:506Boat@Gmail.com">506Boat@Gmail.com</a></p>
-            <p>Non-Member Reg Open Nov 10</p>
-            <p>Email: <a href="mailto:506Boat@Gmail.com">506Boat@Gmail.com</a></p>
-            <p>Lead by 2 Red Seal & Cummings Certified Marine Mechanics</p>
+            <h2>Marine Diesel Seminar (Cancelled – will be rescheduled)</h2>
+            <p>Reservations held. Contact: <a href="mailto:506Boat@gmail.com">506Boat@gmail.com</a></p>
         </div>
     </section>
 
-    <!-- TAB 3: Commander's Notes -->
+    <!-- TAB 3: Commander’s Notes -->
     <section class="tab-content">
         <h1>Commander’s Notes</h1>
         <div class="newsletter-section">
             <h2>Keeping the Boating Spirit Afloat This Winter</h2>
-            <p>As we tuck our boats away on the hard for the season, your local CPS Fredericton Squadron is busy keeping the adventure alive with a lineup of courses and events to warm the winter months. We're thrilled to welcome a full board this year, drawn from diverse boat clubs across the area—bringing fresh energy and perspectives to our community.</p>
-            <p>You'll notice the first exciting change with our revived newsletter, a fantastic initiative spearheaded by our new Communications Officer, Steven Brewer. Be sure to keep an eye on these updates for the latest on upcoming events.</p>
-            <p>We're already gearing up for more: new workshops and gatherings to sharpen skills and share stories. Our kickoff Boat Talk on winterizing was a hit—full of lively discussion and valuable tips. A heartfelt thanks to everyone who joined us!</p>
-            <p>Join us soon to meet the new board and connect with fellow boaters. Your presence makes all the difference—let's stay connected through the chill.</p>
+            <p>As we tuck our boats away... we're thrilled to welcome a full board this year... spearheaded by our new Communications Officer, Steven Brewer.</p>
             <p><em>“Don’t be so busy that you can’t remember if you found a rope on the beach or lost your boat”</em></p>
             <p><strong>Troy Otis<br>Commander, Fredericton Squadron</strong></p>
         </div>
@@ -162,9 +196,9 @@
         <h1>Safety Buoy – Tip of the Month</h1>
         <div class="newsletter-section">
             <h2>“Know Before You Go”</h2>
-            <p>Before setting sail, always check the marine weather forecast. Sudden changes in wind and wave conditions can turn a pleasant cruise into a risky situation. Bookmark the <a href="https://weather.gc.ca/marine/index_e.html" target="_blank">Canadian Marine Weather Service</a> and keep a VHF radio tuned to channel 16.</p>
+            <p>Always check the <a href="https://weather.gc.ca/marine/index_e.html" target="_blank">Canadian Marine Weather Service</a> and keep VHF tuned to Channel 16.</p>
         </div>
-        <!-- Existing nested procedures -->
+
         <input type="radio" name="nested" id="nested1" checked>
         <input type="radio" name="nested" id="nested2">
         <input type="radio" name="nested" id="nested3">
@@ -179,158 +213,74 @@
 
         <div class="nested-content">
             <h2>Man Overboard Procedure</h2>
-            <div class="procedure"><strong>1.</strong> Shout “MAN OVERBOARD!” + port/starboard</div>
-            <div class="procedure"><strong>2.</strong> Throw life ring & deploy flotation device</div>
-            <div class="procedure"><strong>3.</strong> Assign dedicated spotter – never lose visual</div>
-            <div class="procedure"><strong>4.</strong> Activate MOB on GPS/plotter</div>
-            <div class="procedure"><strong>5.</strong> Execute Williamson turn or immediate return maneuver</div>
-            <div class="procedure"><strong>6.</strong> Deploy rescue boat if conditions allow</div>
+            <div class="procedure">1. Shout “MAN OVERBOARD!” + port/starboard</div>
+            <div class="procedure">2. Throw life ring & deploy flotation</div>
+            <div class="procedure">3. Assign dedicated spotter</div>
+            <div class="procedure">4. Activate MOB on GPS</div>
+            <div class="procedure">5. Execute Williamson turn</div>
+            <div class="procedure">6. Deploy rescue boat if safe</div>
         </div>
 
         <div class="nested-content">
             <h2>Fire Response Protocol</h2>
-            <div class="procedure"><strong>1.</strong> Sound continuous fire alarm</div>
-            <div class="procedure"><strong>2.</strong> Announce location over PA</div>
-            <div class="procedure"><strong>3.</strong> Attempt to extinguish with nearest extinguisher (if safe)</div>
-            <div class="procedure"><strong>4.</strong> Close doors & vents to contain fire</div>
-            <div class="procedure"><strong>5.</strong> Activate fixed CO₂ or water mist system (if applicable)</div>
-            <div class="procedure"><strong>6.</strong> Prepare for possible evacuation</div>
+            <div class="procedure">1. Sound continuous fire alarm</div>
+            <div class="procedure">2. Announce location over PA</div>
+            <div class="procedure">3. Attempt to extinguish (if safe)</div>
+            <div class="procedure">4. Close doors & vents</div>
+            <div class="procedure">5. Activate fixed system</div>
+            <div class="procedure">6. Prepare for evacuation</div>
         </div>
 
         <div class="nested-content">
             <h2>Medical Emergency</h2>
-            <div class="procedure"><strong>1.</strong> Call “MEDICAL EMERGENCY” + location</div>
-            <div class="procedure"><strong>2.</strong> Administer first aid / CPR if trained</div>
-            <div class="procedure"><strong>3.</strong> Retrieve AED and medical kit</div>
-            <div class="procedure"><strong>4.</strong> Contact shore medical advisory service via radio/satellite</div>
-            <div class="procedure"><strong>5.</strong> Prepare for medevac if required</div>
+            <div class="procedure">1. Call “MEDICAL EMERGENCY” + location</div>
+            <div class="procedure">2. Administer first aid / CPR</div>
+            <div class="procedure">3. Retrieve AED and medical kit</div>
+            <div class="procedure">4. Contact shore medical service</div>
+            <div class="procedure">5. Prepare for medevac</div>
         </div>
 
         <div class="nested-content">
             <h2>Abandon Ship Procedure</h2>
-            <div class="procedure"><strong>1.</strong> Commander orders “ABANDON SHIP”</div>
-            <div class="procedure"><strong>2.</strong> Sound 7 short + 1 long blast</div>
-            <div class="procedure"><strong>3.</strong> Don life jackets</div>
-            <div class="procedure"><strong>4.</strong> Transmit Mayday on VHF Ch. 16 & SSB</div>
-            <div class="procedure"><strong>5.</strong> Launch liferafts & survival suits</div>
-            <div class="procedure"><strong>6.</strong> Take EPIRB, SART, grab bag, and water</div>
-            <div class="procedure"><strong>7.</strong> Stay together and await rescue</div>
+            <div class="procedure">1. Commander orders “ABANDON SHIP”</div>
+            <div class="procedure">2. Sound 7 short + 1 long blast</div>
+            <div class="procedure">3. Don life jackets</div>
+            <div class="procedure">4. Transmit Mayday</div>
+            <div class="procedure">5. Launch liferafts</div>
+            <div class="procedure">6. Take EPIRB, SART, water</div>
+            <div class="procedure">7. Stay together and await rescue</div>
         </div>
     </section>
 
-    <!-- TAB 5: On the Horizon (Upcoming Events) -->
+    <!-- TAB 5: On the Horizon – Upcoming Events -->
     <section class="tab-content">
         <h1>On the Horizon – Upcoming Events</h1>
         <ul class="event-list">
-            <li>
-                <strong>November Boat Talk: Emergency Incident Handling - Expert Panel</strong><br>
-                <strong>Date:</strong> November 19<br>
-                <strong>Time:</strong> 7:00 PM<br>
-                <strong>Location:</strong> Dolan’s Pub, Fredericton<br>
-                <strong>Details:</strong> Ask seasoned sailors what they would do if confronted with any water emergency.
-            </li>
-            <li>
-                <strong>Christmas Party</strong><br>
-                <strong>Date:</strong> December 4<br>
-                <strong>Time:</strong> 6:00 PM<br>
-                <strong>Location:</strong> The Nest (Above the Cap), Fredericton<br>
-                <strong>Details:</strong> Live Music!
-            </li>
-            <li>
-                <strong>January Boat Talk: Knotty Night</strong><br>
-                <strong>Date:</strong> Jan 21, 2026<br>
-                <strong>Time:</strong> 7:00 PM<br>
-                <strong>Location:</strong> Dolan’s Pub, Fredericton<br>
-                <strong>Details:</strong> Bring your favourite line, but rope will be provided if you forget
-            </li>
-            <li>
-                <strong>February Boat Talk: Fire Safety</strong><br>
-                <strong>Date:</strong> Feb 18, 2026<br>
-                <strong>Time:</strong> 7:00 PM<br>
-                <strong>Location:</strong> Dolan’s Pub, Fredericton<br>
-                <strong>Details:</strong> Refresher on keeping safe from the dangers of boat fires
-            </li>
-            <li>
-                <strong>March Boat Talk: Season Preparation</strong><br>
-                <strong>Date:</strong> Mar 18, 2026<br>
-                <strong>Time:</strong> 7:00 PM<br>
-                <strong>Location:</strong> Dolan’s Pub, Fredericton<br>
-                <strong>Details:</strong> Summer is fast approaching. Are you ready to splash?
-            </li>
-            <li>
-                <strong>April Boat Talk: Trivia Night</strong><br>
-                <strong>Date:</strong> Apr 15, 2026<br>
-                <strong>Time:</strong> 7:00 PM<br>
-                <strong>Location:</strong> Dolan’s Pub, Fredericton<br>
-                <strong>Details:</strong> Opportunity for all Salty Dogs to show their stuff!
-            </li>
+            <li><strong>Nov 19 – Emergency Incident Handling (Expert Panel)</strong><br>7:00 PM • Dolan’s Pub</li>
+            <li><strong>Dec 4 – Christmas Party</strong><br>6:00 PM • The Nest (Above the Cap) • Live Music!</li>
+            <li><strong>Jan 21, 2026 – Knotty Night</strong><br>7:00 PM • Dolan’s Pub</li>
+            <li><strong>Feb 18, 2026 – Fire Safety</strong><br>7:00 PM • Dolan’s Pub</li>
+            <li><strong>Mar 18, 2026 – Season Preparation</strong><br>7:00 PM • Dolan’s Pub</li>
+            <li><strong>Apr 15, 2026 – Trivia Night</strong><br>7:00 PM • Dolan’s Pub</li>
         </ul>
     </section>
 
-    <!-- TAB 6: Captain's Log (Recent Events) -->
+    <!-- TAB 6: Captain’s Log – Recent Events -->
     <section class="tab-content">
-        <h1>Captain’s Log - Recent Events</h1>
+        <h1>Captain’s Log – Recent Events</h1>
         <div class="newsletter-section">
             <h2>Oct 2025 Winterization Boat Talk</h2>
-            <p>22 Engaged boaters made many contributions and asked lots of great questions</p>
-            <p>This was one of our “best ever” Boat Talks.</p>
-            <h3>Topics included:</h3>
-            <ul>
-                <li>Which antifreeze and where</li>
-                <li>Battery care and feeding</li>
-                <li>Fuel additives</li>
-                <li>Best bilge practices</li>
-                <li>Minimizing moisture</li>
-                <li>Potable water and antifreeze</li>
-                <li>Dryer Sheets go where?</li>
-                <li>Sea Strainer</li>
-            </ul>
+            <p>22 engaged boaters • “One of our best ever”<br>Topics: antifreeze, battery care, fuel additives, bilge practices, moisture control, dryer sheets, sea strainers</p>
         </div>
     </section>
 
-    <!-- TAB 7: Bearings & Tales (Member Adventures) -->
+    <!-- TAB 7: Bearings & Tales – Member Adventures -->
     <section class="tab-content">
         <h1>Bearings & Tales – Member Adventures</h1>
         <div class="newsletter-section">
-            <p>The YouTube channel <a href="https://www.youtube.com/@BeyondthebuoyswithAnM" target="_blank">Beyond the Buoys (@BeyondthebuoyswithAnM)</a>, hosted by Andrea and Mike, both are Fredericton Squadron members, is a vlog series launched in June 2025, centered on real-life boating adventures along Canada's scenic waterways. With a focus on the "highs, lows, and everything in between of life on the water," it shares personal stories of exploration, from coastal anchorages to navigating challenging routes. The channel's debut video introduces their 1979 Mainship MK1 trawler (a 34-foot vessel with diesel engine, full living quarters, and swim platform) and outlines an 18-day delivery trip from Mariposa Marina in St. André d’Argenteuil, Québec, to their home in New Brunswick—covering the St. Lawrence River, Gaspé Peninsula, Northumberland Strait, Canso Strait, southern Nova Scotia, and the Bay of Fundy via reversing falls in Saint John.</p>
-            <p>Subsequent episodes provide daily-ish updates on the journey, including lock transits, weather hurdles, speed logs, and stunning scenery, in a casual, enthusiastic style that's approachable for boating newcomers or armchair travelers.</p>
+            <p>Check out the amazing YouTube channel <a href="https://www.youtube.com/@BeyondthebuoyswithAnM" target="_blank">Beyond the Buoys (@BeyondthebuoyswithAnM)</a> by squadron members Andrea and Mike!</p>
+            <p>Their 1979 Mainship MK1 trawler delivery trip from Québec to New Brunswick is pure inspiration.</p>
         </div>
-        <table class="youtube-table">
-            <thead>
-                <tr>
-                    <th>Title</th>
-                    <th>Upload Date</th>
-                    <th>Brief Focus</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="https://www.youtube.com/watch?v=pJxDOvRFw8c" target="_blank">Beyond the Buoys with AnM</a></td>
-                    <td>Jun 4, 2025</td>
-                    <td>Boat tour and full route overview</td>
-                </tr>
-                <tr>
-                    <td>Ste Anne de Bellevue Lock Day 3</td>
-                    <td>Jun 9, 2025</td>
-                    <td>Early journey lock navigation.</td>
-                </tr>
-                <tr>
-                    <td>Canso Strait Lock. Heading to Long Lake, NS</td>
-                    <td>Jun 30, 2025</td>
-                    <td>Mid-trip strait passage and anchoring.</td>
-                </tr>
-                <tr>
-                    <td>Lockeport, NS to Saint John, NB</td>
-                    <td>Jul 10, 2025</td>
-                    <td>Final leg through Nova Scotia bays.</td>
-                </tr>
-                <tr>
-                    <td>June 11, 2025 (untitled update)</td>
-                    <td>Jun 11, 2025</td>
-                    <td>Daily progress log</td>
-                </tr>
-            </tbody>
-        </table>
     </section>
 
 </div>
